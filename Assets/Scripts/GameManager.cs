@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     CardboardHead head = null;
+    public GUIText score;
     public PathGenerator pathPrefab;
     private PathGenerator pathInstance;
     public MainCamera mainCamera;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
         head = Camera.main.GetComponent<StereoController>().Head;
         BeginGame();
+        score.text = "1000";
     }
 	
 	// Update is called once per frame
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour {
             RestartGame();
            
         }
+
        
 
     }
