@@ -54,6 +54,7 @@
      <None Include="Assets\SkySphere_V1\Documentation\How to use.txt" />
      <None Include="Assets\Free Props\Info.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\PBS Materials Variety Pack\readme.txt" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
  <Reference Include="UnityEditor.Advertisements">

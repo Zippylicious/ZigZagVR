@@ -68,8 +68,11 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+     <Compile Include="Assets\ReverseNormals.cs" />
+     <Compile Include="Assets\ScreentoWorldAlignment.cs" />
      <Compile Include="Assets\SkySphere_V1\Examples\Gui.cs" />
      <Compile Include="Assets\SkySphere_V1\Examples\MouseLook.cs" />
+     <Compile Include="Assets\addTorque.cs" />
      <Compile Include="Assets\characterMove.cs" />
      <None Include="Assets\Cardboard\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
@@ -78,6 +81,7 @@
      <None Include="Assets\SkySphere_V1\Documentation\How to use.txt" />
      <None Include="Assets\Free Props\Info.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\PBS Materials Variety Pack\readme.txt" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
  <Reference Include="UnityEngine.UI">
