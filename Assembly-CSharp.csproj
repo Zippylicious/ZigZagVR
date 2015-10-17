@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Autowalk.cs" />
+     <Compile Include="Assets\Block.cs" />
      <Compile Include="Assets\Cardboard\Legacy\Scripts\CardboardOnGUI.cs" />
      <Compile Include="Assets\Cardboard\Legacy\Scripts\CardboardOnGUIMouse.cs" />
      <Compile Include="Assets\Cardboard\Legacy\Scripts\CardboardOnGUIWindow.cs" />
@@ -68,9 +69,13 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+     <Compile Include="Assets\Floor.cs" />
      <Compile Include="Assets\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
+     <Compile Include="Assets\MainCamera.cs" />
+     <Compile Include="Assets\PathGenerator.cs" />
      <Compile Include="Assets\ReverseNormals.cs" />
      <Compile Include="Assets\ScreentoWorldAlignment.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\SkySphere_V1\Examples\Gui.cs" />
      <Compile Include="Assets\SkySphere_V1\Examples\MouseLook.cs" />
      <Compile Include="Assets\addTorque.cs" />
