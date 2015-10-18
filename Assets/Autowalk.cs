@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Autowalk : MonoBehaviour
 {
@@ -98,5 +99,11 @@ public class Autowalk : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, yOffset, transform.position.z);
         }
+    }
+
+
+    public void setSpeed(float someSpeed)
+    {
+        speed = someSpeed;
     }
 }

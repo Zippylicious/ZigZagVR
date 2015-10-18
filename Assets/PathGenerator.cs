@@ -35,51 +35,68 @@ public class PathGenerator : MonoBehaviour {
         blocks = new Block[numBlocks];
         for (int i = 0; i < numBlocks; i++)
         {
-            //IF REACHED END OF PATH
-            if(pathLength == 0)
+
+            if (i < 8)
             {
-                //CHOOSE NEW DIRECTION
-                //IF DIRECTION IS RIGHT OR LEFT, DIRECTION IS ALWAYS FORWARD
-                if(direction == 0 || direction == 2)
+                currentX += 2;
+                CreateBlock(currentX, currentZ, i);
+            }
+            else
+            {
+
+
+                //IF REACHED END OF PATH
+                if (pathLength == 0)
                 {
-                    direction = 1;
-                } else
-                {
-                    //IF DIRECTION IS FORWARD, RANDOMLY CHOOSE RIGHT OR LEFT
-                    if(Random.Range(0,2) == 0) {
-                        direction = 0;
-                    } else
+                    //CHOOSE NEW DIRECTION
+                    //IF DIRECTION IS RIGHT OR LEFT, DIRECTION IS ALWAYS FORWARD
+                    if (direction == 0 || direction == 2)
                     {
-                        direction = 2;
+                        direction = 1;
                     }
+                    else
+                    {
+                        //IF DIRECTION IS FORWARD, RANDOMLY CHOOSE RIGHT OR LEFT
+                        if (Random.Range(0, 2) == 0)
+                        {
+                            direction = 0;
+                        }
+                        else
+                        {
+                            direction = 2;
+                        }
+                    }
+
+
+                    //CHOOSE NEW PATH LENGTH
+                    pathLength = Random.Range(shortestPath, longestPath + 1);
+
                 }
 
 
-                //CHOOSE NEW PATH LENGTH
-                pathLength = Random.Range(shortestPath, longestPath + 1);
+                if (direction == 1)
+                {
+                    currentX += 2;
+                }
+                else if (direction == 0)
+                {
+                    currentZ += 2;
+                }
+                else
+                {
+                    currentZ -= 2;
+                }
 
+                CreateBlock(currentX, currentZ, i);
+                pathLength--;
             }
-
-
-            if(direction == 1)
-            {
-                currentX += 2;
-            } else if(direction == 0)
-            {
-                currentZ += 2;
-            } else
-            {
-                currentZ -= 2;
-            }
-
-            CreateBlock(currentX, currentZ, i);
-            pathLength--;
         }
     }
 
     private void CreateBlock(int x, int z, int i)
     {
         Block newBlock = Instantiate(blockPrefab) as Block;
+        newBlock.setId(i);
         blocks[i] = newBlock;
         newBlock.name = "Block " + x + ", " + z;
         newBlock.transform.parent = transform;
