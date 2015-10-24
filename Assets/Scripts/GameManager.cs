@@ -6,11 +6,13 @@ public class GameManager : MonoBehaviour {
 
     CardboardHead head = null;
     public getText scoreText;
-    private int score;
     public PathGenerator pathPrefab;
     public Autowalk walker;
-    private PathGenerator pathInstance;
 
+
+    private Boolean isAlive;
+    private PathGenerator pathInstance;
+    private int score;
     private Block currentBlock;
     private Block previousBlock;
 
@@ -20,14 +22,26 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         head = Camera.main.GetComponent<StereoController>().Head;
+        isAlive = false;
         BeginGame();
    
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(pathInstance.getNumBlocks() - score < 30)
+        {
+            pathInstance.AddToPath(30);
+        }
+
+        if (Cardboard.SDK.Triggered && !isAlive)
+        {
+            isAlive = true;
+        }
+
        // score.setText("10000");
-        if (head.transform.position.y <= 6.08)
+        if (head.transform.position.y <= 6.15)
         {
             RestartGame();
            
@@ -35,6 +49,16 @@ public class GameManager : MonoBehaviour {
 
         walker.setSpeed((float)(Math.Min(3 + .1*score, 8.0)));
 
+    }
+
+    public Boolean getAlive()
+    {
+        return isAlive;
+    }
+
+    public void setAlive(Boolean someAlive)
+    {
+        isAlive = someAlive;
     }
 
     public void setScore(int someScore)
@@ -68,6 +92,7 @@ public class GameManager : MonoBehaviour {
         Destroy(pathInstance.gameObject);
         BeginGame();
         mainCamera.Reset();
+        isAlive = false;
 
     }
 

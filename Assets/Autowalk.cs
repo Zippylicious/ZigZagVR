@@ -13,6 +13,8 @@ using System;
 
 public class Autowalk : MonoBehaviour
 {
+    public GameManager manager;
+
     private const int RIGHT_ANGLE = 90;
 
     // This variable determinates if the player will move or not 
@@ -48,45 +50,7 @@ public class Autowalk : MonoBehaviour
 
     void Update()
     {
-        // Walk when the Cardboard Trigger is used 
-        if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered)
-        {
-            isWalking = true;
-        }
-        else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.Triggered)
-        {
-            isWalking = false;
-        }
-
-        // Walk when player looks below the threshold angle 
-        if (walkWhenLookDown && !walkWhenTriggered && !isWalking &&
-            head.transform.eulerAngles.x >= thresholdAngle &&
-            head.transform.eulerAngles.x <= RIGHT_ANGLE)
-        {
-            isWalking = true;
-        }
-        else if (walkWhenLookDown && !walkWhenTriggered && isWalking &&
-                 (head.transform.eulerAngles.x <= thresholdAngle ||
-                 head.transform.eulerAngles.x >= RIGHT_ANGLE))
-        {
-            isWalking = false;
-        }
-
-        // Walk when the Cardboard trigger is used and the player looks down below the threshold angle
-        if (walkWhenLookDown && walkWhenTriggered && !isWalking &&
-            head.transform.eulerAngles.x >= thresholdAngle &&
-            Cardboard.SDK.Triggered &&
-            head.transform.eulerAngles.x <= RIGHT_ANGLE)
-        {
-            isWalking = true;
-        }
-        else if (walkWhenLookDown && walkWhenTriggered && isWalking &&
-                 head.transform.eulerAngles.x >= thresholdAngle &&
-                 (Cardboard.SDK.Triggered ||
-                 head.transform.eulerAngles.x >= RIGHT_ANGLE))
-        {
-            isWalking = false;
-        }
+        isWalking = manager.getAlive();
 
         if (isWalking)
         {
